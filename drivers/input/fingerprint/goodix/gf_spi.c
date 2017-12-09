@@ -920,10 +920,10 @@ static int gf_remove(struct platform_device *pdev)
 
 	/* make sure ops on existing fds can abort cleanly */
 	if (gf_dev->irq)
-		free_irq(gf_dev->irq, gf_dev);
+	free_irq(gf_dev->irq, gf_dev);
 
 	if (gf_dev->input != NULL)
-		input_unregister_device(gf_dev->input);
+	input_unregister_device(gf_dev->input);
 	input_free_device(gf_dev->input);
 
 	/* prevent new opens */
@@ -932,7 +932,7 @@ static int gf_remove(struct platform_device *pdev)
 	device_destroy(gf_class, gf_dev->devt);
 	clear_bit(MINOR(gf_dev->devt), minors);
 	if (gf_dev->users == 0)
-		gf_cleanup(gf_dev);
+	gf_cleanup(gf_dev);
 
 	fb_unregister_client(&gf_dev->notifier);
 	mutex_unlock(&device_list_lock);
