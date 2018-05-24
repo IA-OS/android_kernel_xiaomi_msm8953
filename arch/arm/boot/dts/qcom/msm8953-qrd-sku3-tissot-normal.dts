@@ -5,3 +5,13 @@
 /dts-v1/;
  
 #include "msm8953-qrd-sku3-tissot.dtsi"
+
+&firmware {
+	android {
+		fstab {
+			system {
+				status = "ok";
+			};
+		};
+	};
+};
